@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Gato</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-joystick" viewBox="0 0 16 16">
+        <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"/>
+        <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
+      </svg>  JUEGO DEL GATO Y RATON</h1>
+    <div class="container d-flex flex-column justify-content-center align-items-center ">
+
+        <div class="header text-center mb-4">
+
+            <div class="row">
+
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombreJugador1" required value="Pablo">
+                            <label for="nombreJugador1"> Jugador 1</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombreJugador2" required value="Pedro">
+                            <label for="nombreJugador2"> Jugador 2</label>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                      </svg>
+                    <p class="mb-0 ms-2"> 1 - <span id="name1" style="color: green;"> </span> Victorias: <span id="vicjuagdor1" style="color: goldenrod;">  </span></p>
+                </div>
+                <div class="col">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                      </svg>
+                    <p class="mb-0 ms-2"> 2 - <span id="name2" style="color: green;"> </span> Victorias: <span style="color: goldenrod;" id="vicjuagdor2"> </span></p>
+                </div>
+
+                <div class="col">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-neutral-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm-3 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+                      </svg>
+                    <p class="mb-0 ms-2"> 3 - Empates: <br> <span id="empates" style="color: red;"> </span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <canvas id="Ejercicio01"></canvas>
+
+        <div class="m-4">
+            <button id="botonDeRegilla" class="btn btn-outline-success">Jugar con Regilla</button>
+            <br>
+            <br>
+            <button id="Reinicio" class="btn btn-outline-danger">Reiniciar Partida</button>
+            <br>
+            <br>
+
+            <div id="cordenadas"></div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal_ganador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title">¡Jugador ha ganado!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenido del mensaje -->
+                    </div>
+                    <div class="modal-footer">
+                        <button id="terminar" class="btn btn-danger" data-bs-dismiss="modal"> Terminar Juego</button>
+                        <br>
+                        <br>
+                        <button id="Continuar" class="btn btn-success" data-bs-dismiss="modal" > Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
